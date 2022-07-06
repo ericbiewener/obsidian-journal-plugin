@@ -17,16 +17,10 @@ const MANIFEST = "manifest.json";
 
 const postBuild = async () => {
 	await fs.copyFile(path.join(MANIFEST), path.join(OUT_DIR, MANIFEST));
-	await Promise.all([
-		fs.copy(
-			path.join(OUT_DIR),
-			"/Users/ericbiewener/Drive/Notes/.obsidian/plugins/journal"
-		),
-		fs.copy(
-			path.join(OUT_DIR),
-			"/Users/ericbiewener/Drive/π Archive/Deep Freeze/Past Jobs/Data/.obsidian/plugins/journal"
-		),
-	]);
+	await fs.copy(
+		path.join(OUT_DIR),
+		"/Users/ericbiewener/Drive/Notes/.obsidian/plugins/journal"
+	);
 	console.info("✅ Copied plugin to vault.");
 };
 
